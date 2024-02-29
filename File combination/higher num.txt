@@ -1,0 +1,121 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class HighAwt extends Frame {
+  
+      HighAwt(){
+          
+        Frame sarino = new Frame("Higher Number");
+        sarino.setBackground(Color.orange);
+
+        Label first = new Label("1st Number");
+        first.setBounds(50, 50, 80, 20);
+
+        TextField num1 = new TextField();
+        num1.setBounds(130, 50, 100, 20);
+        Font s = new Font("Comic Sans MS", Font.BOLD, 12); 
+        first.setFont(s);
+
+        Label second = new Label("2nd Number");
+        second.setBounds(50, 80, 80, 20);
+
+        TextField num2 = new TextField();
+        num2.setBounds(130, 80, 100, 20);
+        Font x = new Font("Comic Sans MS", Font.BOLD, 12); 
+        second.setFont(x);
+
+        Label third = new Label("3rd Number");
+        third.setBounds(50, 110, 80, 20);
+
+        TextField num3 = new TextField();
+        num3.setBounds(130, 110, 100, 20);
+        Font h = new Font("Comic Sans MS", Font.BOLD, 12); 
+        third.setFont(h);
+
+        Label fourth = new Label("4th Number");
+        fourth.setBounds(50, 140, 80, 20);
+
+        TextField num4 = new TextField();
+        num4.setBounds(130, 140, 100, 20);
+        Font r = new Font("Comic Sans MS", Font.BOLD, 12); 
+        fourth.setFont(r);
+
+        Label fifth = new Label("5th Number");
+        fifth.setBounds(50, 170, 80, 20);
+
+        TextField num5 = new TextField();
+        num5.setBounds(130, 170, 100, 20); 
+        Font j = new Font("Comic Sans MS", Font.BOLD, 12); 
+        fifth.setFont(j);
+
+        TextField ansField = new TextField();
+        ansField.setBounds(80, 210, 170, 25);
+        Font b = new Font("Comic Sans MS", Font.BOLD, 12); 
+        ansField.setFont(b);
+
+        Button high = new Button("Result");
+        high.setBounds(160, 250, 80, 30); 
+        Font g = new Font("Comic Sans MS", Font.BOLD, 14); 
+        high.setFont(g);
+        high.setBackground(Color.orange);
+        high.setForeground(Color.blue);
+
+        Button close = new Button("Back");
+        close.setBounds(160, 290, 80, 30);
+        Font y = new Font("Comic Sans MS", Font.BOLD, 14); 
+        close.setFont(y);
+        close.setForeground(Color.red);
+        close.setBackground(Color.orange);
+        close.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                sarino.dispose();
+                new menuawt();
+            }
+        });
+        high.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int number1 = Integer.parseInt(num1.getText());
+                int number2 = Integer.parseInt(num2.getText());
+                int number3 = Integer.parseInt(num3.getText());
+                int number4 = Integer.parseInt(num4.getText());
+                int number5 = Integer.parseInt(num5.getText());
+
+                int maxNumber = number1;
+
+                if (number2 > maxNumber) {
+                    maxNumber = number2;
+                }
+                if (number3 > maxNumber) {
+                    maxNumber = number3;
+                }
+                if (number4 > maxNumber) {
+                    maxNumber = number4;
+                }
+                if (number5 > maxNumber) {
+                    maxNumber = number5;
+                }
+
+                ansField.setText("Highest number: " + maxNumber);
+            }
+        });
+        sarino.add(first);
+        sarino.add(num1);
+        sarino.add(second);
+        sarino.add(num2);
+        sarino.add(third);
+        sarino.add(num3);
+        sarino.add(fourth);
+        sarino.add(num4);
+        sarino.add(fifth);
+        sarino.add(num5);
+        sarino.add(ansField);
+        sarino.add(high);
+        sarino.add(close);
+        sarino.setSize(300, 400); 
+        sarino.setLayout(null);
+        sarino.setVisible(true);
+    }
+    public static void main(String[] args){
+        
+    }
+}

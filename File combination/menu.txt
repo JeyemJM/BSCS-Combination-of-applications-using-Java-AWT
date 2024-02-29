@@ -1,0 +1,69 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class menuawt extends Frame implements ActionListener {
+    
+        Button cal,ave,higher,logout;
+    
+    menuawt(){
+        
+        Font f = new Font("Sans-serif", Font.BOLD, 15);
+
+        Label title = new Label(" T O O L S ");
+        title.setBounds(70, 40, 160, 60);
+        title.setBackground(Color.yellow);
+        Font x = new Font("Monospaced", Font.BOLD, 25);
+        title.setFont(x);
+        
+        cal = new Button("Calculator");
+        cal.setBounds(50,120,90,60);
+        cal.addActionListener(this);
+        cal.setFont(f);
+        
+        ave = new Button("Average");
+        ave.setBounds(160,120,90,60);
+        ave.addActionListener(this);
+        ave.setFont(f);
+        
+        higher = new Button("Higher");
+        higher.setBounds(50,200,90,60);
+        higher.addActionListener(this);
+        higher.setFont(f);
+        
+        Button logout = new Button("Logout");
+        logout.setBounds(160,200,90,60);
+        logout.addActionListener(this);
+        logout.setForeground(Color.red);
+        logout.setFont(f);
+ 
+        add(title); add(cal); add(ave); add(higher); add(logout);
+        
+        setTitle("Menu Tools");
+        setSize(300, 400);
+        setBackground(Color.orange);
+        setLayout(null);
+        setVisible(true);        
+    }
+      public void actionPerformed(ActionEvent e){
+          if(e.getSource()==cal){
+              dispose();
+              new SarinoAWT();
+          }
+          else if (e.getSource()==ave){
+              dispose();
+              new averageSARINO();
+          }
+          else if (e.getSource()==higher){
+              dispose();
+              new HighAwt();
+        }
+        else
+        {
+            dispose();
+        }
+    }
+        public static void main(String[] args){
+           new menuawt();
+    }
+    }
+

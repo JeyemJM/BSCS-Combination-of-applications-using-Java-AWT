@@ -1,0 +1,93 @@
+import java.awt.*;
+import java.awt.event.*;
+
+public class MainSarinoAwt extends Frame implements ItemListener, ActionListener {
+    TextField noname, pwd;
+    Checkbox show;
+    Button log, close;
+
+    MainSarinoAwt() {
+        Font f = new Font("Sans-serif", Font.BOLD, 15);
+
+        Label logtil = new Label("SARINO TOOLS");
+        logtil.setBounds(50, 40, 190, 40);
+        logtil.setBackground(Color.yellow);
+        Font x = new Font("Monospaced", Font.BOLD, 25);
+        logtil.setFont(x);
+
+        // Set the background color for the frame
+        setBackground(Color.orange);
+
+        Label no = new Label("User Name:");
+        no.setBounds(30, 80, 100, 40);
+        no.setFont(f);
+        // box of username
+        noname = new TextField();
+        noname.setBounds(130, 90, 100, 25);
+        noname.setFont(f);
+        
+        Label pw = new Label("Password:");
+        pw.setBounds(30, 120, 100, 40);
+        pw.setFont(f);
+        // box of password
+        pwd = new TextField();
+        pwd.setBounds(130, 130, 100, 25);
+        pwd.setEchoChar('*');
+        pwd.setFont(f);
+
+        show = new Checkbox("Show Password");
+        show.setBounds(50, 160, 150, 50);
+        show.setFont(f);
+        show.addItemListener(this);
+
+        log = new Button("Login");
+        log.setBounds(50, 210, 100, 50);
+        log.setFont(f);
+        log.addActionListener(this);
+
+        close = new Button("Close");
+        close.setBounds(160, 210, 100, 50);
+        close.setFont(f);
+        close.addActionListener(this);
+
+        add(logtil);
+        add(no);
+        add(noname);
+        add(pw);
+        add(pwd);
+        add(show);
+        add(log);
+        add(close);
+
+        setTitle("Sarino Login Activity");
+        setSize(300, 400);
+        setLayout(null);
+        setVisible(true);
+    }
+
+    public void itemStateChanged(ItemEvent e) {
+        if (e.getStateChange() == 1) {
+            pwd.setEchoChar((char) 0);
+        } else {
+            pwd.setEchoChar('*');
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == log) {
+            String user = noname.getText();
+            String pass = pwd.getText();
+            if (user.equals("SARINO") && pass.equals("sarinopogi")) {
+                dispose();
+                new menuawt();
+            }
+        } else if (e.getSource() == close) {
+            dispose();
+            
+        }
+    }
+
+    public static void main(String[] args) {
+        new MainSarinoAwt();
+    }
+}

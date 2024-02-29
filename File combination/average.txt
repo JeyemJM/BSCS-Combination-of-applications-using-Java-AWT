@@ -1,0 +1,152 @@
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class averageSARINO extends Frame {
+  
+    averageSARINO(){
+        
+        Frame sarino = new Frame("Add Number");
+        sarino.setBackground(Color.orange);
+
+        Label first = new Label("1st Number");
+        first.setBounds(50, 50, 80, 20);
+        
+        TextField num1 = new TextField();
+        num1.setBounds(130, 50, 100, 20);
+        Font s = new Font("Comic sans MS", Font.BOLD, 10);
+        first.setFont(s);
+
+        Label second = new Label("2nd Number");
+        second.setBounds(50, 80, 80, 20);
+        
+        TextField num2 = new TextField();
+        num2.setBounds(130, 80, 100, 20);
+        Font x = new Font("Comic sans MS", Font.BOLD, 10);
+        second.setFont(x);
+        
+        Label third = new Label("3rd Number");
+        third.setBounds(50, 110, 80, 20);
+        
+        TextField num3 = new TextField();
+        num3.setBounds(130, 110, 100, 20);
+        Font h = new Font("Comic sans MS", Font.BOLD, 10);
+        third.setFont(h);
+
+        
+        TextField ansField = new TextField();
+        ansField.setBounds(80, 140, 170, 25);
+        Font b = new Font("Comic sans MS", Font.BOLD, 15);
+        ansField.setFont(b);
+        
+        TextField aveField = new TextField();
+        aveField.setBounds(80, 170, 170, 25);
+        Font l = new Font("Comic sans MS", Font.BOLD, 15);
+        aveField.setFont(b);
+
+        Button add = new Button("+");
+        add.setBounds(80, 210, 30, 30);
+        Font c = new Font("Comic sans MS", Font.BOLD, 15);
+        add.setFont(c);
+        add.setBackground(Color.orange);
+        add.setForeground(Color.blue);
+
+        Button minus = new Button("-");
+        minus.setBounds(120, 210, 30, 30);
+        Font d = new Font("Comic sans MS", Font.BOLD, 20);
+        minus.setFont(d);
+        minus.setBackground(Color.orange);
+        minus.setForeground(Color.blue);
+
+        Button multiply = new Button("*");
+        multiply.setBounds(160, 210, 30, 30);
+        Font z = new Font("Comic sans MS", Font.BOLD, 20);
+        multiply.setFont(z);
+        multiply.setBackground(Color.orange);
+        multiply.setForeground(Color.blue);
+
+        Button divide = new Button("/");
+        divide.setBounds(200, 210, 30, 30);
+        Font g = new Font("Comic sans MS", Font.BOLD, 20);
+        divide.setFont(g);
+        divide.setBackground(Color.orange);
+        divide.setForeground(Color.blue);
+
+        Button close = new Button("Back");
+        close.setBounds(160, 280, 80, 30);
+        Font y = new Font("Comic sans MS", Font.BOLD, 20);
+        close.setFont(y);
+        close.setForeground(Color.red);
+        close.setBackground(Color.orange);
+        close.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                sarino.dispose();
+                new menuawt();
+            }
+        });
+        add.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int first = Integer.parseInt(num1.getText());
+                int second = Integer.parseInt(num2.getText());
+                int third = Integer.parseInt(num3.getText());
+                int sum = first + second + third;
+                int ave = sum / 3;
+                ansField.setText("Answer: " + sum);
+                aveField.setText("Average: " + ave);
+            }
+        });
+        minus.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent a) {
+                int first = Integer.parseInt(num1.getText());
+                int second = Integer.parseInt(num2.getText());
+                int third = Integer.parseInt(num3.getText());
+                int sum = first - second - third;
+                int ave = sum / 3;
+                ansField.setText("Answer: " + sum);
+                aveField.setText("Average: " + ave);
+            }
+        });
+        multiply.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent a) {
+                int first = Integer.parseInt(num1.getText());
+                int second = Integer.parseInt(num2.getText());
+                int third = Integer.parseInt(num3.getText());
+                int sum = first * second * third;
+                int ave = sum / 3;
+                ansField.setText("Answer: " + sum);
+                aveField.setText("Average: " + ave);
+            }
+        });
+        divide.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent a) {
+                int first = Integer.parseInt(num1.getText());
+                int second = Integer.parseInt(num2.getText());
+                int third = Integer.parseInt(num3.getText());
+                int sum = first / second / third;
+                int ave = sum / 3;
+                ansField.setText("Answer: " + sum);
+                aveField.setText("Average: " + ave);
+            }
+        });
+        sarino.add(first);
+        sarino.add(num1);
+        sarino.add(second);
+        sarino.add(num2);
+        sarino.add(third);
+        sarino.add(num3);
+        sarino.add(ansField);
+        sarino.add(aveField);
+        sarino.add(add);
+        sarino.add(minus);
+        sarino.add(multiply);
+        sarino.add(divide);
+        sarino.add(close);
+
+        sarino.setSize(300, 400);
+        sarino.setLayout(null);
+        sarino.setVisible(true);
+    }
+    public static void main(String[] args){
+        new averageSARINO();
+    }
+}
